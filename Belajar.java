@@ -1,16 +1,19 @@
 public class Belajar {
 	public static void main(String args[]) {
-		// Buatlah aplikasi untuk menampilkan angka 1-50,
-		//ketika angka n habis dibagi 3 maka keluar tulisan "n habis dibagi 3",
-		//dan jika n habis dibagi 5 maka keluar tulisan "n habis dibagi 5"
-		for (int nilaiAwal = 1; nilaiAwal <= 50; nilaiAwal++) {
-			if (nilaiAwal % 3 == 0) {
-				System.out.println(nilaiAwal + " habis dibagi 3");
+
+		for (int nilaiAwal = 1; nilaiAwal <= 20; nilaiAwal++) {
+			int prima = 0; // variable untuk menampung jumlah hasil bagi
+			for (int i = 1; i <= 20; i++) {
+				if (nilaiAwal%i == 0) { // cek hasil bagi setiap perulangan lalu di simpan ke prima
+					prima++;
+				}
 			}
-			if (nilaiAwal % 5 == 0) {
-				System.out.println(nilaiAwal + " habis dibagi 5");
+			if (prima == 2 && nilaiAwal != 1) {
+				System.out.println(nilaiAwal + " bilangan prima");
+			} else {
+				System.out.println(nilaiAwal + " bukan bilangan prima");
 			}
-			System.out.println(nilaiAwal);
 		}
+
 	}
 }
