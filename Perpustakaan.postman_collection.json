@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "b6c83eb1-61f5-4525-92fc-1fa06fc53a75",
+		"name": "Perpustakaan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14062687"
+	},
+	"item": [
+		{
+			"name": "Lihat Semua Data Buku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/buku",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"buku"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lihat Semua Data Anggota",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/buku",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"buku"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simpan Buku",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"judul\":\"suneo\",\r\n    \"penulis\":\"nobita\",\r\n    \"penerbit\":\"japan nobi\",\r\n    \"tahunTerbit\":\"2022-06-07T05:05:08.836+00:00\",\r\n    \"jenisBuku\":\"Komik\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/buku",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"buku"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simpan Anggota",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\":\"user\",\r\n    \"alamat\":\"jl bintaro\",\r\n    \"noTelp\":\"082123121221\",\r\n    \"tglLahir\":\"1998-06-07\",\r\n    \"jeniskelamin\":\"Laki-laki\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/anggota",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"anggota"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cari  Berdasarkan Judul Buku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/buku/find-by-judul?judul=suneo&penulis=nobita",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"buku",
+						"find-by-judul"
+					],
+					"query": [
+						{
+							"key": "judul",
+							"value": "suneo"
+						},
+						{
+							"key": "penulis",
+							"value": "nobita"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cari  Berdasarkan nama anggota",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/anggota/find-by-nama?nama=user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"anggota",
+						"find-by-nama"
+					],
+					"query": [
+						{
+							"key": "nama",
+							"value": "user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cari Buku berdasarkan id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/buku/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"buku",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cari Anggota berdasarkan id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/anggota/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"anggota",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit data Buku",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jenisBuku\":\"Komik japan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/buku/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"buku",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit data Anggota",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\":\"user faqih\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/anggota/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"anggota",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hapus data buku",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/buku/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"buku",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hapus data Anggota",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/anggota/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"anggota",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
