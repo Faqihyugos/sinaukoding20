@@ -1,5 +1,6 @@
 package com.sinaukoding.perpustakaan.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +27,8 @@ public class Buku {
     private String penerbit;
 
     @Column(name = "tahun_terbit")
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date tahunTerbit;
 
     @Column(name = "jenis_buku")
