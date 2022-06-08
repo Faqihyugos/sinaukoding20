@@ -18,13 +18,13 @@ public class BukuController {
     // create
     @PostMapping()
     public Response createBuku(@RequestBody Buku buku) {
-         return new Response(bukuService.createBuku(buku), "Create successfully", HttpStatus.CREATED);
+         return new Response("Create successfully", HttpStatus.CREATED, bukuService.createBuku(buku));
     }
 
     // Read
     @GetMapping()
     public Response findAllBuku() {
-        return new Response(bukuService.findAllBuku(), "Get Buku success", HttpStatus.OK);
+        return new Response("Get Buku success", HttpStatus.OK ,bukuService.findAllBuku());
     }
 
     @GetMapping(value = "/find-by-judul")
@@ -32,18 +32,18 @@ public class BukuController {
             @RequestParam(value = "judul") String judul,
             @RequestParam(value = "penulis", required = false) String penulis) {
         List<Buku> findByJudul = bukuService.findByJudulContainingAndPenulisContaining(judul, penulis);
-        return new Response(findByJudul, "Get Successfuly", HttpStatus.OK);
+        return new Response("Get Successfuly", HttpStatus.OK ,findByJudul);
     }
 
     @GetMapping(value = "/{id}")
     public Response findById(@PathVariable int id) {
-        return new Response(bukuService.findById(id), "Get Successfuly", HttpStatus.OK);
+        return new Response("Get Successfuly", HttpStatus.OK,bukuService.findById(id));
     }
 
     // update
     @PutMapping(value = "/{id}")
     public Response updateBukuById(@RequestBody Buku buku, @PathVariable int id) {
-        return new Response(bukuService.updateBukuById(buku, id), "update Successfuly", HttpStatus.OK);
+        return new Response("update Successfuly", HttpStatus.OK ,bukuService.updateBukuById(buku, id));
     }
 
     //Delete

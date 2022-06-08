@@ -19,32 +19,32 @@ public class AnggotaController {
     //Create
     @PostMapping
     public Response createAnggota(@RequestBody Anggota anggota){
-        return new Response(anggotaService.createAnggota(anggota), "Create successfully", HttpStatus.CREATED);
+        return new Response("Create successfully", HttpStatus.CREATED,anggotaService.createAnggota(anggota));
 
     }
 
     //Read
     @GetMapping
     public Response findAllAnggota(){
-        return new Response(anggotaService.findAllAnggota(), "Data berhasil ditampilkan", HttpStatus.OK);
+        return new Response("Data berhasil ditampilkan", HttpStatus.OK,anggotaService.findAllAnggota());
     }
 
     @GetMapping(value = "/find-by-nama")
     public Response findByJudulContainingAndPenulisContaining(
             @RequestParam(value = "nama") String nama) {
         List<Anggota> findByNama = anggotaService.findByNamaContaining(nama);
-        return new Response(findByNama, "Get Successfuly", HttpStatus.OK);
+        return new Response("Get Successfuly", HttpStatus.OK,findByNama);
     }
 
     @GetMapping(value = "/{id}")
     public Response findById(@PathVariable int id) {
-        return new Response(anggotaService.findById(id), "Get Successfuly", HttpStatus.OK);
+        return new Response("Get Successfuly", HttpStatus.OK,anggotaService.findById(id));
     }
 
     // update
     @PutMapping(value = "/{id}")
     public Response updateAnggotaById(@RequestBody Anggota anggota, @PathVariable int id) {
-        return new Response(anggotaService.updateAnggotaById(anggota, id), "update Successfuly", HttpStatus.OK);
+        return new Response("update Successfuly", HttpStatus.OK,anggotaService.updateAnggotaById(anggota, id));
     }
 
     @DeleteMapping("/{id}")

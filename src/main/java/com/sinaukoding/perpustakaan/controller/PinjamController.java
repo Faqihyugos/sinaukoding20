@@ -1,14 +1,12 @@
 package com.sinaukoding.perpustakaan.controller;
 
+import com.sinaukoding.perpustakaan.entity.Buku;
 import com.sinaukoding.perpustakaan.entity.Pinjam;
 import com.sinaukoding.perpustakaan.service.PinjamService;
 import com.sinaukoding.perpustakaan.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "pinjam")
@@ -19,7 +17,35 @@ public class PinjamController {
 
     @PostMapping
     public Response createPinjam(@RequestBody Pinjam pinjam){
-        return new Response(pinjamService.createPinjam(pinjam), "Create successfully", HttpStatus.CREATED);
+        return new Response("Create successfully", HttpStatus.CREATED, pinjamService.createPinjam(pinjam));
 
+    }
+
+    // Read
+    @GetMapping()
+    public Response findAllBuku() {
+        return new Response( "Get All success", HttpStatus.OK, pinjamService.findAll());
+    }
+
+    // find by id
+    @GetMapping(value = "/{id}")
+    public Response findById(@PathVariable int id) {
+        return new Response("Get Successfuly", HttpStatus.OK,pinjamService.findById(id));
+    }
+
+    // update
+    @PutMapping(value = "/{id}")
+    public Response updateBukuById(@RequestBody Pinjam pinjam, @PathVariable int id) {
+        return new Response("update Successfuly", HttpStatus.OK,pinjamService.updatePinjamById(pinjam, id));
+    }
+
+    //Delete
+    @DeleteMapping(value = "/{id}")
+    public String deleteBukuById(@PathVariable int id){
+        if(pinjamService.deletePinjamById(id)){
+            return "Data berhasil dihapus";
+        }else{
+            return "Data gagal dihapus";
+        }
     }
 }

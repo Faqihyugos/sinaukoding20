@@ -13,9 +13,9 @@ public class Response implements Serializable {
     String message;
     HttpStatus httpStatus;
 
-    public Response(Object data, String message, HttpStatus httpStatus) {
-        this.data=data;
+    public Response(String message, HttpStatus httpStatus,Object data) {
         this.message=message;
         this.httpStatus=httpStatus;
+        this.data=data;
     }
 }

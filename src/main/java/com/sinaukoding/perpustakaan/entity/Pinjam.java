@@ -1,14 +1,12 @@
 package com.sinaukoding.perpustakaan.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "pinjam")
@@ -20,13 +18,13 @@ public class Pinjam {
     @Column(name = "id_pinjam")
     private Integer idPinjam;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties(value = {"pinjamList","handler","hibernateLazyInitializer"},allowSetters = true)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_buku")
     private Buku buku;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties(value = {"pinjamList","handler","hibernateLazyInitializer"},allowSetters = true)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_anggota")
     private Anggota anggota;
 

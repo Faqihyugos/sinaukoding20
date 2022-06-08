@@ -45,6 +45,25 @@
 			"response": []
 		},
 		{
+			"name": "Lihat Semua Data Pinjam",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/pinjam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"pinjam"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Simpan Buku",
 			"request": {
 				"method": "POST",
@@ -225,6 +244,26 @@
 			"response": []
 		},
 		{
+			"name": "Cari Pinjam berdasarkan id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/pinjam/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"pinjam",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Edit data Buku",
 			"request": {
 				"method": "PUT",
@@ -283,6 +322,35 @@
 			"response": []
 		},
 		{
+			"name": "Edit data Pinjam buku",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"buku\":{\r\n        \"idBuku\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/pinjam/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"pinjam",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Hapus data buku",
 			"request": {
 				"method": "DELETE",
@@ -317,6 +385,26 @@
 					"path": [
 						"anggota",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hapus data Pinjam",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/pinjam/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"pinjam",
+						"2"
 					]
 				}
 			},
