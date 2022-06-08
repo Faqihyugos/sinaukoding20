@@ -31,14 +31,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8088/buku",
+					"raw": "http://localhost:8088/anggota",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8088",
 					"path": [
-						"buku"
+						"anggota"
 					]
 				}
 			},
@@ -51,7 +51,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"judul\":\"suneo\",\r\n    \"penulis\":\"nobita\",\r\n    \"penerbit\":\"japan nobi\",\r\n    \"tahunTerbit\":\"2022-06-07T05:05:08.836+00:00\",\r\n    \"jenisBuku\":\"Komik\"\r\n}",
+					"raw": "{\r\n    \"judul\":\"doraemon\",\r\n    \"penulis\":\"nobita\",\r\n    \"penerbit\":\"japan nobi\",\r\n    \"tahunTerbit\":\"07/06/2019\",\r\n    \"jenisBuku\":\"Komik\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -79,7 +79,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nama\":\"user\",\r\n    \"alamat\":\"jl bintaro\",\r\n    \"noTelp\":\"082123121221\",\r\n    \"tglLahir\":\"1998-06-07\",\r\n    \"jeniskelamin\":\"Laki-laki\"\r\n}",
+					"raw": "{\r\n    \"nama\":\"user\",\r\n    \"alamat\":\"jl bintaro\",\r\n    \"noTelp\":\"082123121221\",\r\n    \"tglLahir\":\"30/06/1998\",\r\n    \"jenisKelamin\":\"Laki-laki\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -95,6 +95,34 @@
 					"port": "8088",
 					"path": [
 						"anggota"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simpan Pinjam",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"anggota\":{\r\n        \"idAnggota\": 1\r\n    },\r\n    \"buku\":{\r\n        \"idBuku\": 1\r\n    },\r\n    \"tglPinjam\":\"05/06/2022\",\r\n    \"tglKembali\":\"20/06/2022\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/pinjam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"pinjam"
 					]
 				}
 			},
