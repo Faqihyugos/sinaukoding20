@@ -1,7 +1,6 @@
 package com.sinaukoding.perpustakaan.service;
 
 import com.sinaukoding.perpustakaan.entity.Anggota;
-import com.sinaukoding.perpustakaan.entity.Buku;
 import com.sinaukoding.perpustakaan.repository.AnggotaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
