@@ -1,6 +1,8 @@
 package com.sinaukoding.perpustakaan.service;
 
 import com.sinaukoding.perpustakaan.entity.Buku;
+import com.sinaukoding.perpustakaan.entity.dto.BukuDTO;
+import com.sinaukoding.perpustakaan.entity.mapper.BukuMapper;
 import com.sinaukoding.perpustakaan.repository.BukuRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,35 +15,37 @@ public class BukuService {
     @Autowired
     BukuRepo bukuRepo;
 
+
     // find by judul and penulis
-    public List<Buku> findByJudulContainingAndPenulisContaining(String judul, String penulis) {
-        return bukuRepo.findByJudulContainingAndPenulisContaining(judul, penulis);
+    public List<BukuDTO> findByJudulContainingAndPenulisContaining(String judul, String penulis) {
+        return BukuMapper.INSTANCE.toDtoList(bukuRepo.findByJudulContainingAndPenulisContaining(judul, penulis));
     }
 
     // create
-    public Buku createBuku(Buku buku) {
-        return bukuRepo.save(buku);
+    public BukuDTO createBuku(BukuDTO bukuDTO) {
+        Buku buku = bukuRepo.save(BukuMapper.INSTANCE.toEntity(bukuDTO));
+        return BukuMapper.INSTANCE.toDto(buku);
     }
 
     // read
-    public List<Buku> findAllBuku() {
-        return bukuRepo.findAll();
+    public List<BukuDTO> findAllBuku() {
+        return BukuMapper.INSTANCE.toDtoList(bukuRepo.findAll());
     }
 
     // find by id
-    public Buku findById(Integer id){
-        return bukuRepo.findById(id).get();
+    public BukuDTO findById(Integer id){
+        return BukuMapper.INSTANCE.toDto(bukuRepo.findById(id).get());
     }
 
     //update
-    public Buku updateBukuById(Buku buku, int id) {
+    public BukuDTO updateBukuById(BukuDTO bukuDTO, int id) {
         Buku reference = bukuRepo.findById(id).get();
-        reference.setJudul(buku.getJudul()!=null?buku.getJudul():reference.getJudul());
-        reference.setPenulis(buku.getPenulis()!=null?buku.getPenulis():reference.getPenulis());
-        reference.setPenerbit(buku.getPenerbit()!=null?buku.getPenerbit():reference.getPenerbit());
-        reference.setTahunTerbit(buku.getTahunTerbit()!=null?buku.getTahunTerbit():reference.getTahunTerbit());
-        reference.setJenisBuku(buku.getJenisBuku()!=null?buku.getJenisBuku():reference.getJenisBuku());
-        return bukuRepo.save(reference);
+        reference.setJudul(bukuDTO.getJudul()!=null?bukuDTO.getJudul():reference.getJudul());
+        reference.setPenulis(bukuDTO.getPenulis()!=null?bukuDTO.getPenulis():reference.getPenulis());
+        reference.setPenerbit(bukuDTO.getPenerbit()!=null?bukuDTO.getPenerbit():reference.getPenerbit());
+        reference.setTahunTerbit(bukuDTO.getTahunTerbit()!=null?bukuDTO.getTahunTerbit():reference.getTahunTerbit());
+        reference.setJenisBuku(bukuDTO.getJenisBuku()!=null?bukuDTO.getJenisBuku():reference.getJenisBuku());
+        return BukuMapper.INSTANCE.toDto(bukuRepo.save(reference));
     }
 
     // delete

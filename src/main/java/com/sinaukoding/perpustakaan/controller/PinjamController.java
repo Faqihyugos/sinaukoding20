@@ -1,7 +1,6 @@
 package com.sinaukoding.perpustakaan.controller;
 
-import com.sinaukoding.perpustakaan.entity.Buku;
-import com.sinaukoding.perpustakaan.entity.Pinjam;
+import com.sinaukoding.perpustakaan.entity.dto.PinjamDTO;
 import com.sinaukoding.perpustakaan.service.PinjamService;
 import com.sinaukoding.perpustakaan.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ public class PinjamController {
     PinjamService pinjamService;
 
     @PostMapping
-    public Response createPinjam(@RequestBody Pinjam pinjam){
+    public Response createPinjam(@RequestBody PinjamDTO pinjam){
         return new Response("Create successfully", HttpStatus.CREATED, pinjamService.createPinjam(pinjam));
 
     }
@@ -35,7 +34,7 @@ public class PinjamController {
 
     // update
     @PutMapping(value = "/{id}")
-    public Response updateBukuById(@RequestBody Pinjam pinjam, @PathVariable int id) {
+    public Response updateBukuById(@RequestBody PinjamDTO pinjam, @PathVariable int id) {
         return new Response("update Successfuly", HttpStatus.OK,pinjamService.updatePinjamById(pinjam, id));
     }
 

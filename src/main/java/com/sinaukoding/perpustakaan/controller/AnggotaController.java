@@ -1,7 +1,6 @@
 package com.sinaukoding.perpustakaan.controller;
 
-import com.sinaukoding.perpustakaan.entity.Anggota;
-import com.sinaukoding.perpustakaan.entity.Buku;
+import com.sinaukoding.perpustakaan.entity.dto.AnggotaDTO;
 import com.sinaukoding.perpustakaan.service.AnggotaService;
 import com.sinaukoding.perpustakaan.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class AnggotaController {
     AnggotaService anggotaService;
     //Create
     @PostMapping
-    public Response createAnggota(@RequestBody Anggota anggota){
+    public Response createAnggota(@RequestBody AnggotaDTO anggota){
         return new Response("Create successfully", HttpStatus.CREATED,anggotaService.createAnggota(anggota));
 
     }
@@ -32,8 +31,7 @@ public class AnggotaController {
     @GetMapping(value = "/find-by-nama")
     public Response findByJudulContainingAndPenulisContaining(
             @RequestParam(value = "nama") String nama) {
-        List<Anggota> findByNama = anggotaService.findByNamaContaining(nama);
-        return new Response("Get Successfuly", HttpStatus.OK,findByNama);
+        return new Response("Get Successfuly", HttpStatus.OK,anggotaService.findByNamaContaining(nama));
     }
 
     @GetMapping(value = "/{id}")
@@ -43,7 +41,7 @@ public class AnggotaController {
 
     // update
     @PutMapping(value = "/{id}")
-    public Response updateAnggotaById(@RequestBody Anggota anggota, @PathVariable int id) {
+    public Response updateAnggotaById(@RequestBody AnggotaDTO anggota, @PathVariable int id) {
         return new Response("update Successfuly", HttpStatus.OK,anggotaService.updateAnggotaById(anggota, id));
     }
 

@@ -1,8 +1,8 @@
 package com.sinaukoding.perpustakaan.service;
 
-import com.sinaukoding.perpustakaan.entity.Anggota;
-import com.sinaukoding.perpustakaan.entity.Buku;
 import com.sinaukoding.perpustakaan.entity.Pinjam;
+import com.sinaukoding.perpustakaan.entity.dto.PinjamDTO;
+import com.sinaukoding.perpustakaan.entity.mapper.PinjamMapper;
 import com.sinaukoding.perpustakaan.repository.PinjamRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,27 +16,28 @@ public class PinjamService {
     PinjamRepo pinjamRepo;
 
     // create
-    public Pinjam createPinjam(Pinjam param) {
-        return pinjamRepo.save(param);
+    public PinjamDTO createPinjam(PinjamDTO pinjamDTO) {
+        Pinjam pinjam = pinjamRepo.save(PinjamMapper.INSTANCE.toEntity(pinjamDTO));
+        return PinjamMapper.INSTANCE.toDto(pinjam);
     }
 
-    public List<Pinjam> findAll() {
-        return pinjamRepo.findAll();
+    public List<PinjamDTO> findAll() {
+        return PinjamMapper.INSTANCE.toDtoList(pinjamRepo.findAll());
     }
 
     // find by id
-    public Pinjam findById(Integer id){
-        return pinjamRepo.findById(id).get();
+    public PinjamDTO findById(Integer id){
+        return PinjamMapper.INSTANCE.toDto(pinjamRepo.findById(id).get());
     }
 
     //Update
-    public Pinjam updatePinjamById(Pinjam pinjam, int id){
+    public PinjamDTO updatePinjamById(PinjamDTO pinjam, int id){
         Pinjam reference = pinjamRepo.findById(id).get();
         reference.setAnggota(pinjam.getAnggota()!=null?pinjam.getAnggota():reference.getAnggota());
         reference.setBuku(pinjam.getBuku()!=null?pinjam.getBuku():reference.getBuku());
         reference.setTglPinjam(pinjam.getTglPinjam()!=null?pinjam.getTglPinjam():reference.getTglPinjam());
         reference.setTglKembali(pinjam.getTglKembali()!=null?pinjam.getTglKembali():reference.getTglKembali());
-        return pinjamRepo.save(reference);
+        return PinjamMapper.INSTANCE.toDto(pinjamRepo.save(reference));
     }
 
     //Delete

@@ -7,408 +7,423 @@
 	},
 	"item": [
 		{
-			"name": "Lihat Semua Data Buku",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/buku",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"buku"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Lihat Semua Data Anggota",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/anggota",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"anggota"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Lihat Semua Data Pinjam",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/pinjam",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"pinjam"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Simpan Buku",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"judul\":\"doraemon\",\r\n    \"penulis\":\"nobita\",\r\n    \"penerbit\":\"japan nobi\",\r\n    \"tahunTerbit\":\"07/06/2019\",\r\n    \"jenisBuku\":\"Komik\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Buku",
+			"item": [
+				{
+					"name": "Lihat Semua Data Buku",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/buku",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"buku"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8088/buku",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"buku"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Simpan Anggota",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nama\":\"user\",\r\n    \"alamat\":\"jl bintaro\",\r\n    \"noTelp\":\"082123121221\",\r\n    \"tglLahir\":\"30/06/1998\",\r\n    \"jenisKelamin\":\"Laki-laki\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8088/anggota",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"anggota"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Simpan Pinjam",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \r\n    \"anggota\":{\r\n        \"idAnggota\": 1\r\n    },\r\n    \"buku\":{\r\n        \"idBuku\": 1\r\n    },\r\n    \"tglPinjam\":\"05/06/2022\",\r\n    \"tglKembali\":\"20/06/2022\"\r\n\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8088/pinjam",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"pinjam"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Cari  Berdasarkan Judul Buku",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/buku/find-by-judul?judul=suneo&penulis=nobita",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"buku",
-						"find-by-judul"
-					],
-					"query": [
-						{
-							"key": "judul",
-							"value": "suneo"
+				{
+					"name": "Simpan Buku",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"judul\":\"doraemon\",\r\n    \"penulis\":\"nobita\",\r\n    \"penerbit\":\"japan nobi\",\r\n    \"tahunTerbit\":\"07/06/2019\",\r\n    \"jenisBuku\":\"Komik\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
-						{
-							"key": "penulis",
-							"value": "nobita"
+						"url": {
+							"raw": "http://localhost:8088/buku",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"buku"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Cari  Berdasarkan nama anggota",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/anggota/find-by-nama?nama=user",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"anggota",
-						"find-by-nama"
-					],
-					"query": [
-						{
-							"key": "nama",
-							"value": "user"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Cari Buku berdasarkan id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/buku/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"buku",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Cari Anggota berdasarkan id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/anggota/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"anggota",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Cari Pinjam berdasarkan id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/pinjam/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"pinjam",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Edit data Buku",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"jenisBuku\":\"Komik japan\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8088/buku/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"buku",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Edit data Anggota",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nama\":\"user faqih\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Cari  Berdasarkan Judul Buku",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/buku/find-by-judul?judul=suneo&penulis=nobita",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"buku",
+								"find-by-judul"
+							],
+							"query": [
+								{
+									"key": "judul",
+									"value": "suneo"
+								},
+								{
+									"key": "penulis",
+									"value": "nobita"
+								}
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8088/anggota/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"anggota",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Edit data Pinjam buku",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"buku\":{\r\n        \"idBuku\": 2\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Edit data Buku",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jenisBuku\":\"Komik japan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/buku/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"buku",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8088/pinjam/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"pinjam",
-						"1"
-					]
+				{
+					"name": "Hapus data buku",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/buku/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"buku",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cari Buku berdasarkan id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/buku/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"buku",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Hapus data buku",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/buku/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"buku",
-						"1"
-					]
+			"name": "Anggota",
+			"item": [
+				{
+					"name": "Lihat Semua Data Anggota",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/anggota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"anggota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cari  Berdasarkan nama anggota",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/anggota/find-by-nama?nama=user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"anggota",
+								"find-by-nama"
+							],
+							"query": [
+								{
+									"key": "nama",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cari Anggota berdasarkan id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/anggota/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"anggota",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simpan Anggota",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\":\"user\",\r\n    \"alamat\":\"jl bintaro\",\r\n    \"noTelp\":\"082123121221\",\r\n    \"tglLahir\":\"30/06/1998\",\r\n    \"jenisKelamin\":\"Laki-laki\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/anggota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"anggota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit data Anggota",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\":\"user faqih\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/anggota/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"anggota",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus data Anggota",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/anggota/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"anggota",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Hapus data Anggota",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/anggota/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"anggota",
-						"1"
-					]
+			"name": "Pinjam",
+			"item": [
+				{
+					"name": "Lihat Semua Data Pinjam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/pinjam",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"pinjam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simpan Pinjam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"anggota\":{\r\n        \"idAnggota\": 1\r\n    },\r\n    \"buku\":{\r\n        \"idBuku\": 1\r\n    },\r\n    \"tglPinjam\":\"05/06/2022\",\r\n    \"tglKembali\":\"20/06/2022\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/pinjam",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"pinjam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cari Pinjam berdasarkan id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/pinjam/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"pinjam",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit data Pinjam buku",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"buku\":{\r\n        \"idBuku\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/pinjam/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"pinjam",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus data Pinjam",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/pinjam/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"pinjam",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Hapus data Pinjam",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/pinjam/2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"pinjam",
-						"2"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

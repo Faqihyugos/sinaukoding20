@@ -1,6 +1,7 @@
 package com.sinaukoding.perpustakaan.controller;
 
-import com.sinaukoding.perpustakaan.entity.Buku;
+
+import com.sinaukoding.perpustakaan.entity.dto.BukuDTO;
 import com.sinaukoding.perpustakaan.service.BukuService;
 import com.sinaukoding.perpustakaan.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class BukuController {
 
     // create
     @PostMapping()
-    public Response createBuku(@RequestBody Buku buku) {
+    public Response createBuku(@RequestBody BukuDTO buku) {
          return new Response("Create successfully", HttpStatus.CREATED, bukuService.createBuku(buku));
     }
 
@@ -31,8 +32,7 @@ public class BukuController {
     public Response findByJudulContainingAndPenulisContaining(
             @RequestParam(value = "judul") String judul,
             @RequestParam(value = "penulis", required = false) String penulis) {
-        List<Buku> findByJudul = bukuService.findByJudulContainingAndPenulisContaining(judul, penulis);
-        return new Response("Get Successfuly", HttpStatus.OK ,findByJudul);
+        return new Response("Get Successfuly", HttpStatus.OK ,bukuService.findByJudulContainingAndPenulisContaining(judul, penulis));
     }
 
     @GetMapping(value = "/{id}")
@@ -42,7 +42,7 @@ public class BukuController {
 
     // update
     @PutMapping(value = "/{id}")
-    public Response updateBukuById(@RequestBody Buku buku, @PathVariable int id) {
+    public Response updateBukuById(@RequestBody BukuDTO buku, @PathVariable int id) {
         return new Response("update Successfuly", HttpStatus.OK ,bukuService.updateBukuById(buku, id));
     }
 
